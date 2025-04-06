@@ -21,6 +21,10 @@ const latestProject = {
 const techImages = {
     "Next.js": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg",
     "React": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    "Node.js":"https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+    "Express.js": "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
+    "MongoDB" : "https://webimages.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png",
+    "TailwindCSS" : "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
     "TypeScript": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
     "CSS": "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg",
     "JavaScript": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
