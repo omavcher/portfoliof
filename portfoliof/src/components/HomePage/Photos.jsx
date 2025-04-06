@@ -6,8 +6,8 @@ function Photos() {
   // Generate image paths
   const generateImagePaths = () => {
     const paths = [];
-    for (let i = 1; i <= 5; i++) {
-      paths.push(`/photo/p_${i.toString().padStart(3, '0')}.jpeg`);
+    for (let i = 1; i <= 15; i++) {
+      paths.push(`/photo/p_${i.toString().padStart(3, '0')}.avif`);
     }
     return paths;
   };
@@ -17,7 +17,7 @@ function Photos() {
   const lastPosRef = useRef({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const movementThreshold = 100;
-  const displayDuration = 3000;
+  const displayDuration = 2000;
 
   // Generate random tilt between -15 and 15 degrees
   const getRandomTilt = () => Math.floor(Math.random() * 30) - 15;
@@ -128,11 +128,16 @@ function Photos() {
 
 
 <div className="photos-poder">
-  <h1>My Photos</h1>
-  
-
-
+  <div className="content-wrapper">
+    <h1>Hey, I'm Om 👋</h1>
+    <p>A passionate full-stack developer exploring AI, APIs, and scalable SaaS solutions.</p>
+    <div className="highlight-box">
+      <h2>Tech Explorer 🚀</h2>
+      <p>I love building real-world products that solve problems — from AI chat apps to powerful APIs. Let's innovate together!</p>
+    </div>
   </div>
+</div>
+
 
 
     </div>

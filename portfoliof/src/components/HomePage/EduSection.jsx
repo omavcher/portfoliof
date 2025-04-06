@@ -91,65 +91,39 @@ function EduSection() {
   // Education data
   const educationData = [
     {
-      institution: "The New Era High School Jalgaon",
-      description: "Completed my secondary education with focus on science and mathematics.",
+      institution: "The New Era High School",
+      description: "Maharashtra State Board of Secondary and Higher Secondary Education",
       major: "Science Stream",
-      period: "2016 - 2020",
-      image: "https://cdn.prod.website-files.com/669a11d30bf2c1287ddd77fc/66bfaa951418806d1120d8b4_Rectangle%20100%20(2).png"
+      period: "2011 - 2021",
+      image: "/edu/school.avif"
+    },{
+      institution: "Sant Gadge Baba Amravati University",
+      description: "Maharashtra State Board of Secondary and Higher Secondary Education",
+      major: "11th - 12th Science Stream",
+      period: "2021 - 2023",
+      image: "/edu/university.avif"
     },
     {
-      institution: "Engineering College",
-      description: "Bachelor's degree in Computer Engineering with specialization in AI.",
+      institution: "Govindrao Wanjari College Of Engineering & Technology",
+      description: "Bachelor's degree in Computer Engineering",
       major: "Computer Engineering",
-      period: "2020 - 2024",
-      image: "https://cdn.prod.website-files.com/669a11d30bf2c1287ddd77fc/66bfaa951418806d1120d8b4_Rectangle%20100%20(2).png"
+      period: "2023 - 2027",
+      image: "/edu/collage.avif"
     }
   ];
 
-  // Experience data
-  const experienceData = [
-    {
-      company: "Tech Solutions Inc.",
-      role: "Junior Developer",
-      description: "Worked on front-end development using React and backend APIs.",
-      period: "2022 - 2023",
-      image: "https://cdn.prod.website-files.com/669a11d30bf2c1287ddd77fc/66bfaa951418806d1120d8b4_Rectangle%20100%20(2).png"
-    },
-    {
-      company: "Innovate Labs",
-      role: "Software Engineer",
-      description: "Led a team to develop a new mobile application with React Native.",
-      period: "2023 - Present",
-      image: "https://cdn.prod.website-files.com/669a11d30bf2c1287ddd77fc/66bfaa951418806d1120d8b4_Rectangle%20100%20(2).png"
-    }
-  ];
 
-  // Achievements data
-  const achievementsData = [
-    {
-      title: "Best Project Award",
-      description: "Won first prize in college tech fest for innovative AI project.",
-      year: "2023",
-      image: "https://cdn.prod.website-files.com/669a11d30bf2c1287ddd77fc/66bfaa951418806d1120d8b4_Rectangle%20100%20(2).png"
-    },
-    {
-      title: "Hackathon Winner",
-      description: "Developed a solution for local business automation in 48 hours.",
-      year: "2022",
-      image: "https://cdn.prod.website-files.com/669a11d30bf2c1287ddd77fc/66bfaa951418806d1120d8b4_Rectangle%20100%20(2).png"
-    }
-  ];
 
   // Combine all data for horizontal scrolling
-  const allItems = [...educationData, ...experienceData, ...achievementsData];
+  const allItems = [...educationData];
 
   // Duplicate the items to create seamless looping
   const eduItems = (
     <>
-      {[...allItems, ...allItems].map((item, i) => (
+      {[...educationData,...educationData].map((item, i) => (
         <div className='edu-section-item0' key={i}>
           <img src={item.image} alt='edu' className='edu-section-image'/>
-          <TiArrowLeftThick size={200}/>
+          <TiArrowLeftThick size={150}/>
           <div className='edu-section-item0-text'>
             <h2>{item.institution || item.company || item.title}</h2>
             <p>{item.description}</p>
@@ -174,65 +148,7 @@ function EduSection() {
         {eduItems}
       </div>
 
-      <div className='experice-section-details3'>
-        <div className='experice-details3-text-left-section'>
-          {/* Left section content if any */}
-        </div>
-
-        <div className='experice-details3-text-right-section' ref={rightSectionRef}>
-          {/* Education Items */}
-          {educationData.map((edu, index) => (
-            <div className={`experice-details3-text-right-item${index % 2 === 0 ? '' : '-reverse'}`} key={`edu-${index}`}>
-              <span>
-                <FaQuoteLeft size={20} />
-                <p>{edu.description}</p>
-                <small>{edu.period}</small>
-              </span>
-              <img src={edu.image} alt='edu' className='experice-details3-text-right-item-image'/>
-            </div>
-          ))}
-
-          {/* Experience Items */}
-          {experienceData.map((exp, index) => (
-            <div className={`experice-details3-text-right-item${index % 2 === 0 ? '' : '-reverse'}`} key={`exp-${index}`}>
-              <span>
-                <FaQuoteLeft size={20} />
-                <p><strong>{exp.role}</strong> at {exp.company}: {exp.description}</p>
-                <small>{exp.period}</small>
-              </span>
-              <img src={exp.image} alt='exp' className='experice-details3-text-right-item-image'/>
-            </div>
-          ))}
-
-          {/* Achievements Items */}
-          {achievementsData.map((ach, index) => (
-            <div className={`experice-details3-text-right-item${index % 2 === 0 ? '' : '-reverse'}`} key={`ach-${index}`}>
-              <span>
-                <FaQuoteLeft size={20} />
-                <p><strong>{ach.title}</strong>: {ach.description}</p>
-                <small>{ach.year}</small>
-              </span>
-              <img src={ach.image} alt='ach' className='experice-details3-text-right-item-image'/>
-            </div>
-          ))}
-
-          {/* Duplicate for seamless looping */}
-          {[...educationData, ...experienceData, ...achievementsData].map((item, index) => (
-            <div className={`experice-details3-text-right-item${index % 2 === 0 ? '' : '-reverse'}`} key={`loop-${index}`}>
-              <span>
-                <FaQuoteLeft size={20} />
-                <p>
-                  {item.institution && <>{item.description}</>}
-                  {item.company && <><strong>{item.role}</strong> at {item.company}: {item.description}</>}
-                  {item.title && <><strong>{item.title}</strong>: {item.description}</>}
-                </p>
-                <small>{item.period || item.year}</small>
-              </span>
-              <img src={item.image} alt='item' className='experice-details3-text-right-item-image'/>
-            </div>
-          ))}
-        </div>
-      </div>
+      
     </div>
   );
 }

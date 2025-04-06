@@ -371,7 +371,7 @@ function About() {
     Have a project in mind or just want to say hi? Fill out the form below, and I'll get back to you soon!
   </p>
   <form className="contact-form" name="submit-to-google-sheet" onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="form-group-aboutsec">
                 <label htmlFor="name">Name</label>
                 <input
                   type="text"
@@ -383,7 +383,7 @@ function About() {
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-aboutsec">
                 <label htmlFor="email">Email</label>
                 <input
                   type="email"
@@ -395,7 +395,7 @@ function About() {
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-aboutsec">
                 <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
@@ -431,13 +431,6 @@ function About() {
 
         
 
-        <div className="approach-image">
-          <img
-            className="image"
-            src="myPics/MyPic2.jpg"
-            alt="Om Avcher"
-          />
-        </div>
       </div>
     </div>
   );

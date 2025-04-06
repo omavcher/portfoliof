@@ -4,9 +4,8 @@
     flex-direction: column;
     gap: 0.7rem;
     margin-top: 2rem;
-    color: black;
+    color: white;
     overflow: hidden;
-    background-color: #f3f3f2;
 }
 
 .edu-section-codice {
