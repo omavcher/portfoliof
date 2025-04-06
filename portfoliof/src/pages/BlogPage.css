@@ -1,0 +1,542 @@
+/* Dark Theme Search Box */
+.search-box-blogt {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0.4rem ;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 5px;
+    border: 1px solid rgba(79, 79, 79, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .search-box-blogt {
+   width: 80%;
+  }
+  .search-box-blogt.focused {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(198, 198, 198, 0.3);
+    background: rgba(20, 20, 20, 0.9);
+  }
+  
+  .search-box-blogt .search-icon {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-right: 0.8rem;
+    opacity: 0.7;
+  }
+  
+  .search-box-blogt input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e2e8f0;
+    font-size: 1rem;
+    padding: 0.2rem 0;
+    font-family: inherit;
+  }
+  
+  .search-box-blogt input::placeholder {
+    color: rgba(226, 232, 240, 0.5);
+  }
+  
+  .shortcut-bogdr {
+    margin-left: 1rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(200, 200, 200, 0.1);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border: 1px solid rgba(193, 193, 193, 0.2);
+    font-family: 'Fira Code', monospace;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .search-box-blogt {
+      max-width: 80%;
+      padding: 0.6rem 1rem;
+    }
+    
+    .shortcut-bogdr {
+      display: none;
+    }
+  }
+  
+  /* Animation for focus state */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(100, 255, 218, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+  }
+  
+  .search-box-blogt.focused {
+    animation: pulse 1.5s infinite;
+  }
+
+  .topics-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    gap: 12px; /* space between tags */
+    padding: 8px 10px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+    width: 100%;
+  }
+  
+  .topics-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  .topic-tag {
+    background-color: #131312;
+    padding: 8px 14px;
+    border-radius: 9px;
+    font-size: 14px;
+    color: #979687;
+    cursor: pointer;
+    flex: 0 0 auto; /* don't shrink, stay inline */
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  
+  .topic-tag:hover {
+    background-color: #131312;
+    color: rgb(213, 213, 213);
+  }
+  
+  /* ===== Blog Cards ===== */
+/* Shared styles for both mobile and desktop */
+.blog-card-mobile-s,
+.blog-card-laptos-s {
+  display: flex;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blog-card-mobile-s:hover,
+.blog-card-laptos-s:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.imagesx-section-dw,
+.imagesx-section-dw-laptons {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.blog-thumbnail-mobiled,
+.blog-thumbnail-laptopsx {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card-mobile-s:hover .blog-thumbnail-mobiled,
+.blog-card-laptos-s:hover .blog-thumbnail-laptopsx {
+  transform: scale(1.05);
+}
+
+.blog-content-mobiles,
+.blog-content-laptopsdde {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-content-dtae,
+.blog-content-laptops {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blog-content-dtae p,
+.blog-content-laptops p {
+  background: rgba(7, 162, 86, 0.2);
+  color: #07a256;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+.blog-content-dtae-title,
+.blog-content-laptops-title {
+  font-size: 1.5rem;
+  margin: 0.5rem 0 1rem;
+  color: white;
+  line-height: 1.3;
+}
+
+.blog-content-dtae-dicrix,
+.blog-content-slpea-dicrix {
+  color: #d1d1d1;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.blog-content-dtclodk,
+.blog-lapce-dtclodk {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+}
+
+.blog-keywords,
+.blog-keywords-laptops {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.keyword-blogx,
+.keyword-blogx-laptops {
+  background: rgba(255, 255, 255, 0.1);
+  color: #d1d1d1;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.keyword-blogx:hover,
+.keyword-blogx-laptops:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.no-results-message {
+  text-align: center;
+  color: #a0a0a0;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+/* ===== Mobile Specific Styles ===== */
+.mobile-blog-section-dw {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.blog-card-mobile-s {
+  flex-direction: column;
+}
+
+.imagesx-section-dw {
+  width: 100%;
+  height: 200px;
+}
+
+/* ===== Desktop Specific Styles ===== */
+.laptops-blog-section {
+  display: flex;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+.laptops-blog-sectilestdlp {
+  flex: 1;
+}
+
+.blog-card-laptos-s {
+  height: 220px;
+}
+
+.imagesx-section-dw-laptons {
+  width: 300px;
+  height: 100%;
+}
+
+.laptiosn-boldo-right {
+  width: 300px;
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 1024px) {
+  .laptiosn-boldo-right {
+    display: none;
+  }
+  
+  .laptops-blog-section {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 790px) {
+  .page-container-king-dailog3 {
+    padding: 0 1rem;
+  }
+  
+
+  
+  .latest-projects-badge {
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .latest-projects-badge h4 {
+    font-size: 0.9rem;
+  }
+  
+  .blog-content-dtae-title,
+  .blog-content-laptops-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-content-dtae,
+  .blog-content-laptops {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  
+  .imagesx-section-dw {
+    height: 180px;
+  }
+  
+  .blog-content-mobiles {
+    padding: 1.2rem;
+  }
+  
+  .blog-content-dtae-title,
+  .blog-content-laptops-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-blog-section-dw {
+    padding: 0 1rem;
+  }
+  
+  .imagesx-section-dw {
+    height: 160px;
+  }
+  
+  .blog-content-dtae-title,
+  .blog-content-laptops-title {
+    font-size: 1.1rem;
+  }
+  
+  .blog-content-dtae-dicrix,
+  .blog-content-slpea-dicrix {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Topic Tags Active State ===== */
+.topic-tag.active {
+  background-color: rgb(7 186 98 / 20%);
+    color: #07a256;
+    font-weight: bold;
+}
+
+
+/* ===== Main Layout Structure ===== */
+.blog-page-container {
+    display: flex;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  /* Left Column - Blog Posts */
+  .blog-posts-column {
+    width: 60%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: scroll;
+    padding-right: 1rem;
+  }
+  .blog-posts-column::-webkit-scrollbar{
+    display: none;
+  }
+  /* Right Column - Snake Game */
+  .snake-game-column {
+    width: 30%;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+  }
+  
+  /* ===== Blog Cards ===== */
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 2px dotted rgba(255, 255, 255, 0.34); 
+    text-decoration: none;
+  }
+  
+  
+  .blog-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .blog-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 9px;
+  }
+  
+ 
+  
+  .blog-content {
+    padding: 1.5rem;
+  }
+  
+  .blog-date {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .blog-badge {
+    background: rgba(7, 162, 86, 0.2);
+    color: #07a256;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+  
+  .blog-title {
+    font-size: 1.3rem;
+    color: white;
+    line-height: 1.3;
+  }
+  
+  .blog-excerpt {
+    color: #a9a8a8;
+    margin: 0 0 0.7rem;
+    line-height: 1.5;
+    font-size: 0.8rem;
+  }
+  
+  .read-time {
+    font-size: 0.79rem;
+    color: #a0a0a0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .blog-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #d1d1d1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 7px;
+    font-size: 0.75rem;
+  }
+  
+  /* ===== Mobile Layout ===== */
+  @media (max-width: 790px) {
+    .blog-page-container {
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+    
+    .blog-posts-column {
+        width: 100%;
+      padding-right: 0;
+      width: 100%;
+    }
+    
+    .snake-game-column {
+      display: none;
+    }
+    
+    .blog-thumbnail {
+      height: 200px;
+    }
+  }
+  
+  /* ===== Tablet Layout ===== */
+  @media (max-width: 1024px) and (min-width: 791px) {
+
+    .blog-page-container {
+      gap: 2rem;
+    }
+    
+    .snake-game-column {
+      width: 300px;
+    }
+  }
+  
+  /* ===== Scrollbar Styling ===== */
+  .blog-posts-column::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .blog-posts-column::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  .blog-posts-column::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+
+
+  @media (min-width: 780px) {
+    .blog-card{
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        }
+     
+    .blog-thumbnail{
+        width: 200px;
+        object-fit: contain;
+        height: 140px;
+    }
+
+}

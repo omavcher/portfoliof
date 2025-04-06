@@ -1,0 +1,632 @@
+/* GuestbookPage.css */
+
+/* Main container styles */
+.guest-page-contin-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #333;
+}
+
+/* Header section styles */
+.guset-book-coe {
+    background: linear-gradient(-45deg, #000c4d, #29005d, #5300ac, #001933);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    color: white;
+  }
+  
+  .guset-book-coe:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Animate gradient movement in smooth loop */
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 75%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 25%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
+.guset-book-coe span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.guset-book-coe p {
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Login button styles */
+.login-conaite-guse {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-conaite-guse button {
+    background: linear-gradient(288deg, rgb(255, 128, 0) 0%, rgb(255, 0, 204) 53.2394%, rgb(0, 68, 255) 100%);    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.login-conaite-guse button:hover {
+    transform: translateY(-2px);
+}
+
+.login-conaite-guse p {
+    color: rgba(245, 222, 179, 0.473);
+    font-size: 0.9rem;
+}
+
+/* Guest entries container */
+.gueset-continer-ded {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    height: auto;
+}
+
+/* Individual guest entry styles */
+.guest-usrdcx {
+    background-color: rgba(35, 35, 35, 0.253);
+    border-radius: 9px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(44, 44, 44, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.208);
+}
+
+.guest-usrx-cssw {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.guest-usrx-cssw img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+}
+
+.guest-detaislx h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.guest-detaislx p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #bfbebe;
+}
+
+.guest-detaislx-ep {
+    color: #ffffff;
+    line-height: 1.6;
+    padding-left: 64px; /* Align with avatar */
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .guest-page-contin-main {
+        padding: 1rem;
+    }
+    
+    .guest-detaislx-ep {
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+    
+    .guest-usrx-cssw {
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* Dialog Overlay Styles */
+.login-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Dialog Container Styles */
+  .login-dialog-container {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: translateY(20px);
+  }
+  
+  @keyframes slideUp {
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Close Button */
+  .close-dialog-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .close-dialog-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Dialog Header */
+  .dialog-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .dialog-icon {
+    background: linear-gradient(135deg, #ff8000, #ff00cc, #0044ff);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  
+  .dialog-icon svg {
+    color: white;
+  }
+  
+  .dialog-header h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .dialog-header p {
+    color: #aaa;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Login Options */
+  .login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0.95rem;
+  }
+  
+  .google-btn {
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .google-btn:hover {
+    background-color: #3a3a3a;
+    transform: translateY(-2px);
+  }
+  
+  /* Dialog Footer */
+  .dialog-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+  }
+  
+  .dialog-footer a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .dialog-footer a:hover {
+    color: #fff;
+  }
+  
+  /* Message Form Styles (when logged in) */
+  .guest-message-form {
+    background-color: rgba(35, 35, 35, 0.5);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+  }
+  
+  .user-info {
+    flex: 1;
+  }
+  
+  .user-name {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .logout-btn {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+  }
+  
+  .guest-message-input {
+    width: 100%;
+    min-height: 120px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .guest-message-input:focus {
+    outline: none;
+    border-color: #ff00cc;
+    box-shadow: 0 0 0 2px rgba(255, 0, 204, 0.2);
+  }
+  
+  .character-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+  
+  .character-counter.warning {
+    color: #ffcc00;
+  }
+  
+  .character-counter.error {
+    color: #ff6b6b;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+  
+  .form-actions button {
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+  
+  .submit-btn {
+    background: linear-gradient(288deg, rgb(255, 128, 0) 0%, rgb(255, 0, 204) 53.2394%, rgb(0, 68, 255) 100%);
+    color: white;
+    border: none;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 0, 204, 0.3);
+  }
+  
+  .clear-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #aaa;
+  }
+  
+  .clear-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 480px) {
+    .login-dialog-container {
+      width: 90%;
+      padding: 1.5rem;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .form-actions button {
+      width: 100%;
+    }
+  }
+
+  /* GuestbookPage.css */
+
+/* Main container styles */
+.guest-page-contin-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #333;
+}
+
+/* Header section styles */
+.guset-book-coe {
+    background: linear-gradient(-45deg, #000c4d, #29005d, #5300ac, #001933);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.guset-book-coe:hover {
+    transform: scale(1.02);
+}
+
+/* Animate gradient movement in smooth loop */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 75%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 25%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.guset-book-coe span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.guset-book-coe p {
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Login button styles */
+.login-conaite-guse {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-conaite-guse button {
+    background: linear-gradient(288deg, rgb(255, 128, 0) 0%, rgb(255, 0, 204) 53.2394%, rgb(0, 68, 255) 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.login-conaite-guse button:hover {
+    transform: translateY(-2px);
+}
+
+.login-conaite-guse p {
+    color: rgba(245, 222, 179, 0.473);
+    font-size: 0.9rem;
+}
+
+/* Guest entries container */
+.gueset-continer-ded {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    height: auto;
+}
+
+/* Individual guest entry styles */
+.guest-usrdcx {
+    background-color: rgba(35, 35, 35, 0.253);
+    border-radius: 9px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(44, 44, 44, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.208);
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.guest-usrdcx:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.guest-usrx-cssw {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.guest-usrx-cssw img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+}
+
+.guest-detaislx h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.guest-detaislx p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #bfbebe;
+}
+
+.guest-detaislx-ep {
+    color: #ffffff;
+    line-height: 1.6;
+    padding-left: 64px; /* Align with avatar */
+    margin: 0;
+    white-space: pre-wrap; /* Preserve line breaks */
+    word-break: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Ensure text wraps */
+    font-size: 0.95rem;
+}
+
+/* Different message length styles */
+.guest-usrdcx.short-message .guest-detaislx-ep {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.guest-usrdcx.long-message .guest-detaislx-ep {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .guest-page-contin-main {
+        padding: 1rem;
+    }
+    
+    .guest-detaislx-ep {
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+    
+    .guest-usrx-cssw {
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .guest-usrdcx {
+        padding: 1rem;
+    }
+}
+
+
+

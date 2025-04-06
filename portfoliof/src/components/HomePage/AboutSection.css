@@ -1,0 +1,140 @@
+/* Base Styles */
+.container-about3 {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .row-about3 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Columns */
+  .col-left-about3,
+  .col-right-about3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+  }
+  
+  .col-left-about3 {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .col-right-about3 {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Content Styles */
+  .content-about3 {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title-about3 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .text-about3 {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .features-about3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .feature-item-about3 h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-item-about3 p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+  }
+  
+  /* Canvas Styles */
+  .canvas-container-about3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+  }
+  
+  .animation-canvas-about3 {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .loading-about3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  .scroll-content-about3 {
+    position: relative;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .col-left-about3,
+    .col-right-about3 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  
+    .col-right-about3 {
+      height: 50vh;
+      position: relative;
+    }
+  
+    .content-about3 {
+      padding: 1rem;
+    }
+  
+    .title-about3 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .features-about3 {
+      grid-template-columns: 1fr;
+    }
+  
+    .col-left-about3 {
+      padding: 1rem;
+    }
+  }

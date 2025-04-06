@@ -1,0 +1,574 @@
+/* Navbar.css */
+:root {
+    --pure-black: #000000;
+    --dark-gray: #111111;
+    --light-gray: #333333;
+    --white: #ffffff;
+    --blur-amount: 10px;
+  }
+  
+  .navbar-nav084 {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-nav084.scrolled {
+    padding: 10px 5%;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .navbar-logo-nav084 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--white);
+    z-index: 1001;
+  }
+  
+  .navbar-links-nav084 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .nav-link-nav084 {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-link-nav084:hover {
+    color: var(--white);
+  }
+  
+  .nav-link-nav084::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link-nav084:hover::after {
+    width: 70%;
+  }
+  
+  .nav-button-nav084 {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  .nav-button-nav084:hover {
+    background-color: var(--white);
+    color: var(--pure-black);
+  }
+  
+  .navbar-hamburger-nav084 {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .hamburger-icon-nav084 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+  }
+  
+  .hamburger-icon-nav084 span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    transform-origin: left center;
+  }
+  
+  .hamburger-icon-nav084.open span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  
+  .hamburger-icon-nav084.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon-nav084.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  
+  /* Mobile Menu Dialog */
+  .mobile-menu-overlay-nav084 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-menu-dialog-nav084 {
+    width: 85%;
+    max-width: 350px;
+    height: 55vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    overflow-y: scroll;
+  }
+  
+  .mobile-menu-header-nav084 {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 15px;
+  }
+  
+  .mobile-menu-close-nav084 {
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-menu-close-nav084:hover {
+    transform: rotate(90deg);
+  }
+  
+  .mobile-menu-content-nav084 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .search-box-nav084 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .search-box-nav084 input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    font-size: 14px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .search-box-nav084 input:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .search-box-nav084 input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .mobile-menu-items-nav084 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .mobile-nav-link-nav084, .mobile-nav-button-nav084 {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .mobile-nav-button-nav084 {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 10px;
+  }
+  
+  .mobile-nav-link-nav084:hover, .mobile-nav-button-nav084:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-links-nav084 {
+      display: none;
+    }
+  
+    .navbar-hamburger-nav084 {
+      display: flex;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .mobile-menu-overlay-nav084 {
+      display: none;
+    }
+  }
+
+  .mobile-menu-dialog-nav084::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Style for the P button */
+.large-screen-btn-play-song {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+  }
+  
+  .large-screen-btn-play-song:hover {
+    background-color: var(--white);
+    color: var(--pure-black);
+  }
+  
+  /* Hide on mobile screens */
+  @media (max-width: 768px) {
+    .large-screen-btn-play-song {
+      display: none;
+    }
+  }
+  
+  /* Show on larger screens */
+  @media (min-width: 769px) {
+    .large-screen-btn-play-song {
+      display: flex;
+    }
+  }
+  
+  .nav-mobile-decr4{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .nav-mobile-decr4 header h4{
+    font-weight: 500;
+    color: rgba(225, 224, 224, 0.895);
+  }
+  /* Add these to your existing Navbar.css */
+
+/* Search box enhancements */
+.search-input-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box-nav084 input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-size: 14px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.search-box-nav084 input:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+/* Search results dropdown */
+.search-results-dropdown {
+  margin-top: 10px;
+  background-color: rgba(30, 30, 30, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.search-result-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.search-result-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-result-title {
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.search-result-category {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.no-results {
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+}
+
+.search-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.loading-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Music player styles */
+.large-screen-btn-play-song {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+  position: relative;
+}
+
+.large-screen-btn-play-song.playing {
+  background-color: var(--white);
+  color: var(--pure-black);
+}
+
+.large-screen-btn-play-song:hover {
+  transform: scale(1.1);
+}
+
+.now-playing-tooltip {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.large-screen-btn-play-song:hover .now-playing-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: 110%;
+}
+
+.mobile-music-player {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.music-toggle-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.music-toggle-btn.playing {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.music-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.now-playing-mobile {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-actions-nav084 {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-music-player {
+    display: none;
+  }
+}
+/* Audio Player Styles */
+.navbar-actions-nav084 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.now-playing-tooltip {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.large-screen-btn-play-song:hover .now-playing-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: 110%;
+}
+
+.now-playing-mobile {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.navbar-top-mylogos {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%; 
+  transform: scale(1.4);
+}
+
+/* Hover effect */
+.navbar-top-mylogos:hover {
+  transform: scale(1.15) rotate(5deg);
+}

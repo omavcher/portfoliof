@@ -1,0 +1,141 @@
+.edu-section-conteiner94 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 2rem;
+    color: black;
+    overflow: hidden;
+    background-color: #f3f3f2;
+}
+
+.edu-section-codice {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.edu-section-item0 {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 2rem;
+    min-width: 500px; /* Adjust based on your item width */
+    justify-content: space-between;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.edu-section-item0-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    align-items: start;
+}
+
+.edu-section-image {
+    width: 10rem; /* Adjust as needed */
+    height: 10rem;
+    object-fit: cover;
+}
+.edu-section-item0-text span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.edu-section-header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+.experice-section-details3 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    width: 100%;
+    height: 50rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 400px) {
+    .experice-section-details3{
+        flex-direction: column;
+    }
+
+}
+.experice-details3-text-left-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.experice-details3-text-right-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+    gap: 1rem;
+}
+.experice-details3-text-right-section::-webkit-scrollbar {
+display: none;}
+
+@media (max-width: 400px) {
+    .experice-details3-text-left-section{
+        width: 100%;
+    }
+    .experice-details3-text-right-section{
+        width: 100%;
+    }
+}
+
+
+
+.experice-details3-text-right-item{
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+}
+.experice-details3-text-right-item img{
+    width: 40%;
+    object-fit: cover;
+}
+
+
+.experice-details3-text-right-item-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+}
+.experice-details3-text-right-item-reverse img{
+    width: 40%;
+    object-fit: cover;
+}
+
+.edu-section-codice,
+.experice-details3-text-right-section {
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  overflow: hidden; /* Prevent native scrollbars */
+  pointer-events: none; /* Optional: Prevent all pointer interactions */
+}
+
+/* If you want children to be clickable despite pointer-events: none on parent */
+.edu-section-codice > *,
+.experice-details3-text-right-section > * {
+  pointer-events: auto;
+}

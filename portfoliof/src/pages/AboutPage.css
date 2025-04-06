@@ -1,0 +1,665 @@
+.about-page-info-componetx-dw{
+    width: 50%;
+    text-align: start;
+    padding: 0.5rem 1.5rem;
+}
+
+.about-text-dw{
+    margin-top: 0.4rem;
+    color: rgba(255, 255, 255, 0.68);
+}
+  
+  
+.gradient-name-dw {
+    background: linear-gradient(288deg, #ff8000, #ff00cc 53.23%, #0044ff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift-dw 5s ease infinite;
+    display: inline-block;
+    font-family: "Cinzel", serif;
+  }
+  
+  @keyframes gradientShift-dw {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
+  @media (max-width: 680px) {
+    .about-page-info-componetx-dw{
+   width: 100%;
+    }
+  }
+
+  .experience-heading-dw{
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  
+  .gradient-highlight-dw {
+    background: linear-gradient(45deg, #ff8000, #ff00cc, #0044ff, #00ffc8);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientGlow-dw 6s linear infinite;
+    display: inline-block;
+    font-family: "Cinzel", serif;
+  }
+  
+  @keyframes gradientGlow-dw {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+.experince-showcasedwdcw{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+}  
+
+
+.expiricnse-details-containera{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+
+}
+
+
+
+.expiricnse-details-tieks{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.expiricnse-details-contsied3{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+
+.expiricnse-details-containera span{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.expiricnse-details-containera span img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.expiricnse-details-contsied3 p{
+    font-size: 0.9rem;
+    color: rgb(255, 255, 255);
+}
+
+.expiricnse-details-contsied3 ul{
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: rgb(212, 212, 212);
+}
+
+.expiricnse-details-contsied3 li{
+    margin-top: 0.7rem;
+}
+
+.expiricnse-details-contsied3-images-cosb{
+    width: 100%; 
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.expiricnse-details-contsied3-images-cosb img{
+    width: 15rem;
+    height: 15rem;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+.expiricnse-details-contsi-keysw{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 1rem;
+    gap: 0.8rem;
+    width: 100%;
+    overflow-x: scroll;
+}
+.expiricnse-details-contsi-keysw::-webkit-scrollbar{
+    display: none;
+}
+
+.expiricnse-details-contsi-keysw span {
+    background-color: #252525;
+    padding: 0.4rem 0.8rem;
+    border-radius: 7px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.733);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .expiricnse-details-contsi-keysw span:hover {
+    color: white;
+    background-color: #4c4c4c;
+  }
+
+  .expiricnse-details-tieks h6{
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .expiricnse-details-tieks h2{
+    font-size: 1.7rem;
+  }
+
+  .expiricnse-details-tieks span{
+    width: 100%;
+    padding: 0.4rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  .eexperiance-rightfe{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  /* Timeline Animation Styles */
+.experiance-line-animato {
+    position: relative;
+    width: 4px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .timeline-progress {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom, #ff8000, #ff00cc, #0044ff);
+    border-radius: 10px;
+    bottom: 0;
+    left: 0;
+    transform-origin: top;
+  }
+  
+  .timeline-checkpoints {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .checkpoint {
+    position: absolute;
+    left: -12px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .checkpoint-dot {
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border: 3px solid #555;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .checkpoint.active .checkpoint-dot {
+    background: white;
+    border-color: #ff00cc;
+    box-shadow: 0 0 10px rgba(255, 0, 204, 0.7);
+  }
+  
+  .checkpoint-date {
+    position: absolute;
+    left: 30px;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  .checkpoint:hover .checkpoint-date,
+  .checkpoint.active .checkpoint-date {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Sticky Titles */
+  .sticky-title {
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+    padding-bottom: 2rem;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .experince-showcasedwdcw {
+      flex-direction: column;
+    }
+    
+    .experiance-line-animato {
+      width: 100%;
+      height: 4px;
+      margin: 2rem 0;
+    }
+    
+    .timeline-progress {
+      width: 0%;
+      height: 100%;
+    }
+    
+    .timeline-checkpoints {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: auto;
+    }
+    
+    .checkpoint {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin: 0 5px;
+    }
+    
+    .checkpoint-date {
+      left: auto;
+      top: 25px;
+      transform: translateY(-10px);
+    }
+    
+    .checkpoint:hover .checkpoint-date,
+    .checkpoint.active .checkpoint-date {
+      transform: translateY(0);
+    }
+    
+    .sticky-title {
+      position: relative;
+      top: auto;
+    }
+    .expiricnse-details-contsied3-images-cosb{
+      flex-direction: column;
+    }
+  }
+  .experiance-line-animato {
+  position: relative;
+  width: 4px;
+  height: 100%; /* Ensure this matches the height of the experience section */
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 2rem;
+  border-radius: 10px;
+  overflow: visible; /* Change from hidden to visible to prevent clipping */
+}
+
+.timeline-progress {
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(to bottom, #ff8000, #ff00cc, #0044ff);
+  border-radius: 10px;
+  top: 0; /* Start from the top */
+  left: 0;
+  transform-origin: top; /* Grow from top */
+}
+
+/* Experience Section Container */
+.experince-showcasedwdcw {
+    width: 100%;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  
+  .experience-container-wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Timeline Styles */
+  .experiance-line-animato {
+    position: relative;
+    width: 100px;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .timeline-progress {
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, #ff8000, #ff00cc, #0044ff);
+    border-radius: 10px;
+    top: 0;
+    bottom: 0;
+    transform-origin: top;
+  }
+  
+  .timeline-checkpoints {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .checkpoint {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .checkpoint-dot {
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border: 3px solid #555;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 42px;
+  }
+  
+  .checkpoint.active .checkpoint-dot {
+    background: white;
+    border-color: #ff00cc;
+    box-shadow: 0 0 10px rgba(255, 0, 204, 0.7);
+  }
+  
+  .checkpoint-date {
+    position: absolute;
+    left: 70px;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  .checkpoint:hover .checkpoint-date,
+  .checkpoint.active .checkpoint-date {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Experience Content */
+  .eexperiance-rightfe {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding-left: 30px;
+  }
+  
+  /* Sticky Titles */
+  .sticky-title {
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+    padding-bottom: 2rem;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .experience-container-wrapper {
+      flex-direction: column;
+    }
+    
+    .experiance-line-animato {
+      width: 100%;
+      height: 60px;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-progress {
+      width: 100%;
+      height: 4px;
+      left: 0;
+      transform-origin: left;
+    }
+    
+    .timeline-checkpoints {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    
+    .checkpoint {
+      height: auto;
+      width: 50px;
+    }
+    
+    .checkpoint-dot {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+    }
+    
+    .checkpoint-date {
+      left: 50%;
+      transform: translateX(-50%) translateY(25px);
+      top: 100%;
+      width: max-content;
+    }
+    
+    .checkpoint:hover .checkpoint-date,
+    .checkpoint.active .checkpoint-date {
+      transform: translateX(-50%) translateY(20px);
+    }
+    
+    .eexperiance-rightfe {
+      padding-left: 0;
+    }
+    
+    .sticky-title {
+      position: relative;
+      top: auto;
+    }
+  }/* Timeline Container */
+.experiance-line-animato {
+    position: relative;
+    width: 4px;
+    min-height: 100vh; /* Fallback */
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 2rem;
+    border-radius: 10px;
+    align-self: stretch;
+  }
+  
+  /* Progress Bar */
+  .timeline-progress {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom, #ff8000, #ff00cc, #0044ff);
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+  }
+  
+  /* Experience Container */
+  .experience-container-wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    min-height: 100vh; /* Ensure it takes at least full viewport height */
+  }
+  
+  /* Right Content */
+  .eexperiance-rightfe {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding-left: 30px;
+  }
+  
+
+
+  @media (max-width: 768px) {
+    .expiricnse-details-containera{
+    flex-direction: column;
+    }
+    .sticky-title {
+        width: 100%;
+    }
+    .expiricnse-details-tieks{
+        width: 100%;
+    }
+    .expiricnse-details-contsied3{
+        width: 100%;
+    }
+}
+
+.about-page-stack-of-my-tech {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.about-pagesection {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px rgba(255, 255, 255, 0.473) dotted;
+}
+
+.about-pagesection:last-child {
+    border-bottom: none;
+}
+
+.about-pagesection header {
+    width: 100%;
+}
+
+.about-pagesection header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.about-section-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+.about-section-grid span {
+    width: 100%;
+    height: 100%;
+    min-height: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #171717;
+    border-radius: 9px;
+    padding: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.about-section-grid span:hover {
+    transform: scale(1.05);
+}
+
+.about-section-grid span img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.about-section-grid span h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-section-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .about-section-grid span img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-pagesection header h2 {
+        font-size: 1.3rem;
+    }
+}

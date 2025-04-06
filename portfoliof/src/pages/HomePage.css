@@ -1,0 +1,158 @@
+.page-main-container-king{
+    width: 100%;
+    height: auto;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+}
+.background-isd3{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    margin-top: rem;
+    filter: contrast(1.4) brightness(0.95);
+}
+@media (max-width: 680px) {
+    .background-isd3{       
+         height: 30vh;
+        width: 100%;
+        object-fit: cover;
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .background-isd3{
+        width: 100%;
+        object-fit: cover;
+        margin-top: 10rem;
+    }
+}
+
+.page-container-king-dailog3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    color: black;
+    top: 7rem;
+    left: 0;
+    right: 0;
+}
+.page-container-king-dailog3 h1 {
+  font-family: "Nunito", sans-serif;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+
+.animated-title {
+  display: inline-block;
+  font-family: "Pangolin", cursive;
+  min-width: 220px;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  padding: 0 5px;
+}
+@media (max-width: 768px) {
+  .animated-title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .animated-title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 320px) {
+  .animated-title {
+    font-size: 1.2rem;
+  }
+}
+.page-container-king-dailog3 p{
+    font-size: 5rem;
+    font-family: "Underdog", system-ui;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .page-container-king-dailog3 p{
+        font-size: 4rem;
+    }
+}
+@media (max-width: 680px) {
+    .page-container-king-dailog3 p{
+        font-size: 2rem;
+    }
+}
+@media (max-width: 500px) {
+    .page-container-king-dailog3 p{
+        font-size: 1.5rem;
+    }
+        
+}
+
+
+.animate-in {
+  animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+.animate-out {
+  animation: slideOut 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px) rotate(2deg);
+    opacity: 0;
+    text-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  100% {
+    transform: translateY(-20px) rotate(-2deg);
+    opacity: 0;
+    text-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+}
+
+.animated-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+  border-radius: 3px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

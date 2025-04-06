@@ -1,0 +1,188 @@
+/* Eyes.css */
+.eyes {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .eyes-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .cirels{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    position: absolute;
+  }
+.c-1{
+    background-color: #d0ed77;
+}
+.c-2{
+    background-color: #cfec6e;
+}.c-2{
+    background-color: #f7e835;
+}
+/* Eyes.css */
+.eyes {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .eyes-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .cirels {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 2s ease-in-out; /* Smooth transition */
+  }
+  
+  .c-1 {
+    background-color: #d0ed77;
+  }
+  
+  .c-2 {
+    background-color: #cfec6e;
+  }
+  
+  .c-3 {
+    background-color: #f7e835;
+  }
+  
+
+.ewy-andvtn-con{
+    width: 100%;
+    height: 100%;
+}
+
+.eye-circle-bulr-dilem{
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(50px); 
+    transition: all 0.3s ease-in-out;
+    visibility: visible;
+}
+  
+  .eyes-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .eye {
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .eye-inner {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pupil {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.1s ease-out; /* Optional: smooth transition */
+  }
+  
+.op-cv-6{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;  
+    align-items: center;
+    justify-content: center;
+}
+
+
+.button-40 {
+  display: flex;
+  justify-content: center;
+    margin-top: 25rem;
+    width: 15rem;
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  }
+
+.button-40::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.button-40:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+.button-40:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+
+.text{
+  text-decoration: none;
+}
