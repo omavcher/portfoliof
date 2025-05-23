@@ -17,16 +17,27 @@ import ProjectEdit from './Admin/ProjectEdit';
 function App() {
   const location = useLocation();
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Check authentication status on mount
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
     setIsAdminAuthenticated(isAdmin);
   }, []);
 
-  // Function to handle admin login
   const handleAdminLogin = (password) => {
-    if (password === "omjs2693King") { // Consider moving this to an environment variable
+    if (password === "omjs2693King") {
       localStorage.setItem('isAdmin', 'true');
       setIsAdminAuthenticated(true);
       return true;
@@ -34,7 +45,6 @@ function App() {
     return false;
   };
 
-  // Function to handle admin logout
   const handleAdminLogout = () => {
     localStorage.removeItem('isAdmin');
     setIsAdminAuthenticated(false);
@@ -42,9 +52,8 @@ function App() {
 
   return (
     <>
-      {/* Conditionally render Navbar */}
       {!location.pathname.startsWith("/admin") && <Navbar />}
-      <CustomCursor />
+      {!isMobile && <CustomCursor />}
       
       <Routes>
         {/* Public Routes */}
@@ -76,8 +85,7 @@ function App() {
             )
           } 
         />
-
-<Route 
+        <Route 
           path="/admin/blog/edit/:id" 
           element={
             isAdminAuthenticated ? (
@@ -87,8 +95,7 @@ function App() {
             )
           } 
         />
-
-<Route 
+        <Route 
           path="/admin/projects/edit/:id" 
           element={
             isAdminAuthenticated ? (
@@ -98,7 +105,6 @@ function App() {
             )
           } 
         />
-        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
