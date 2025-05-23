@@ -21,10 +21,10 @@ const latestProject = {
 const techImages = {
     "Next.js": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg",
     "React": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-    "Node.js":"https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+    "Node.js": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
     "Express.js": "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
-    "MongoDB" : "https://webimages.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png",
-    "TailwindCSS" : "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+    "MongoDB": "https://webimages.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png",
+    "TailwindCSS": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
     "TypeScript": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
     "CSS": "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg",
     "JavaScript": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
@@ -150,36 +150,53 @@ function WorkPage() {
     };
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (scrollContainerRef.current) {
+        if (isMobile || !projectsData) return;
+
+        const checkRef = () => {
+            if (!scrollContainerRef.current) {
+                setTimeout(checkRef, 100); // Retry until ref is available
+                return;
+            }
+
+            const handleScroll = () => {
                 const scrollPosition = scrollContainerRef.current.scrollTop;
                 const containerHeight = scrollContainerRef.current.clientHeight;
 
-                const newIndex = imageRefs.current.findIndex((ref) => {
-                    if (!ref) return false;
+                let closestIndex = 0;
+                let minDistance = Infinity;
+
+                imageRefs.current.forEach((ref, index) => {
+                    if (!ref) return;
                     const rect = ref.getBoundingClientRect();
                     const containerRect = scrollContainerRef.current.getBoundingClientRect();
                     const relativeTop = rect.top - containerRect.top;
-                    return relativeTop <= containerHeight / 2 && relativeTop + rect.height >= containerHeight / 2;
+                    const distance = Math.abs(relativeTop + rect.height / 2 - containerHeight / 2);
+
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestIndex = index;
+                    }
                 });
 
-                if (newIndex !== -1 && newIndex !== activeProject) {
-                    setActiveProject(newIndex);
+                if (closestIndex !== activeProject) {
+                    setActiveProject(closestIndex);
                 }
-            }
+            };
+
+            const scrollContainer = scrollContainerRef.current;
+            const debouncedScroll = () => {
+                clearTimeout(scrollContainer.scrollTimeout);
+                scrollContainer.scrollTimeout = setTimeout(handleScroll, 100);
+            };
+            scrollContainer.addEventListener('scroll', debouncedScroll);
+            return () => {
+                clearTimeout(scrollContainer.scrollTimeout);
+                scrollContainer.removeEventListener('scroll', debouncedScroll);
+            };
         };
 
-        const scrollContainer = scrollContainerRef.current;
-        if (scrollContainer) {
-            scrollContainer.addEventListener('scroll', handleScroll);
-        }
-
-        return () => {
-            if (scrollContainer) {
-                scrollContainer.removeEventListener('scroll', handleScroll);
-            }
-        };
-    }, [activeProject]);
+        checkRef();
+    }, [activeProject, isMobile, projectsData]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -205,7 +222,7 @@ function WorkPage() {
     };
 
     if (!projectsData) {
-        return <div> <Loader/> </div>;
+        return <div><Loader /></div>;
     }
 
     return (
@@ -351,7 +368,9 @@ function WorkPage() {
                 <section className="project-work-laptops">
                     <motion.div 
                         className="project-work-x-laptops" 
-                        ref={scrollContainerRef}
+                        ref={(el) => {
+                            scrollContainerRef.current = el;
+                        }}
                     >
                         <motion.div 
                             className="projects-split-container"
@@ -451,14 +470,14 @@ function WorkPage() {
                                 >
                                     <motion.div 
                                         className="project-title-container"
-                                        key={projectsData[activeProject]._id}
+                                        key={projectsData[activeProject]?._id}
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                         transition={{ duration: 0.4 }}
                                     >
                                         <h2 className="project-title">
-                                            {projectsData[activeProject].title}  
-                                            <Link to={`${projectsData[activeProject].github}`}>
+                                            {projectsData[activeProject]?.title}  
+                                            <Link to={`${projectsData[activeProject]?.github}`}>
                                                 <AiFillGithub size={25} style={{color:'white'}} />
                                             </Link>
                                         </h2>
@@ -466,12 +485,12 @@ function WorkPage() {
                                     
                                     <motion.p 
                                         className="project-description"
-                                        key={`${projectsData[activeProject]._id}-desc`}
+                                        key={`${projectsData[activeProject]?._id}-desc`}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0.4, delay: 0.2 }}
                                     >
-                                        {projectsData[activeProject].description}
+                                        {projectsData[activeProject]?.description}
                                     </motion.p>
 
                                     <motion.div 
@@ -479,16 +498,14 @@ function WorkPage() {
                                         variants={containerVariants}
                                     >
                                         <ul className="features-list">
-                                            {projectsData[activeProject].features.map((feature, i) => (
-                                               
-
- <motion.li 
+                                            {projectsData[activeProject]?.features.map((feature, i) => (
+                                                <motion.li 
                                                     key={i} 
                                                     className="feature-item"
                                                     variants={itemVariants}
                                                     whileHover={{ x: 5 }}
                                                 >
-                                                    <span style={{color:`${projectsData[activeProject].color}`}} className="feature-plus">
+                                                    <span style={{color:`${projectsData[activeProject]?.color}`}} className="feature-plus">
                                                         <AiFillFire />
                                                     </span>
                                                     <span>{feature}</span>
@@ -505,7 +522,7 @@ function WorkPage() {
                                             className="tech-list"
                                             variants={containerVariants}
                                         >
-                                            {projectsData[activeProject].technologies.map((tech, i) => (
+                                            {projectsData[activeProject]?.technologies.map((tech, i) => (
                                                 <motion.span 
                                                     key={i} 
                                                     className="tech-item"
@@ -536,8 +553,8 @@ function WorkPage() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.8 }}
             />
-            <Marquee/>
-            <About/>
+            <Marquee />
+            <About />
         </div>
     );
 }

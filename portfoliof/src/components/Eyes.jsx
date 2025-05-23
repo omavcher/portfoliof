@@ -5,20 +5,7 @@ import Loader from './Loader'
 
 function Eyes() {
   const [pupilPosition, setPupilPosition] = useState({ left: 0, top: 0 });
-  const [resume, setResume] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await api.get(`/api/resume`);
-        setResume(response.data.resume); // Fixed typo: response.date -> response.data
-      } catch (error) {
-        console.error("Error fetching:", error);
-      }
-    };
-    
-    fetchData();
-  }, []);
+  
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -77,10 +64,6 @@ function Eyes() {
     };
   }, []);
 
-  // If resume is not loaded yet, show loading state
-  if (!resume) {
-    return <div> <Loader/> </div>;
-  }
 
   return (
     <div data-scroll className="eyes">
@@ -123,11 +106,15 @@ function Eyes() {
             </div>
 
             <a 
-              href={resume} 
+              href={'https://drive.google.com/file/d/1NjPaj_cFZq2m9voZSklklxhNzLu0twRL/view?usp=sharing'} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="button-40" 
               role="button"
+              style={{
+                textDecoration:"none",
+                marginBottom:'0.8rem'
+              }}
             >
               <span className="text">View CV</span>
             </a>
