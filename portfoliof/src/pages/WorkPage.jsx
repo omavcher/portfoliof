@@ -15,7 +15,7 @@ import Loader from '../components/Loader';
 
 const latestProject = {
     name: "Echo Heart",
-    Link: "https://op.versel.in",
+    Link: "https://heartecho.in/",
 };
 
 const techImages = {
