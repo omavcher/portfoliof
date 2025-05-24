@@ -52,3 +52,16 @@
       margin-top: 5rem;
   }
 }
+
+
+@media (min-width: 480px) {
+    .blog-content-li3d {
+        margin-top: 13.5rem;
+    }
+    .blog-page-give-chai-li3d {
+        top: 7%;
+    }
+    .blog-meta-li3d {
+        top: 32%;
+    }
+}
