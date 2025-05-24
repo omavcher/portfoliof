@@ -34,6 +34,11 @@
     height: 25vh;
 }
 
+@media (max-width: 671px) {
+    .blog-thumbnail-coane-li3d{
+        height: 38vh;
+    }
+}
 .blog-thumbnail-xe-li3d {
     width: 100%;
     height: 100%;
