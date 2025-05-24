@@ -27,14 +27,12 @@
 .blog-sidebar-li3d-fd::-webkit-scrollbar{
     display: none;
 }
-@media (min-width: 671px) {
-   .blog-thumbnail-coane-li3d {
+
+.blog-thumbnail-coane-li3d {
     position: relative;
     width: 100%;
     height: 25vh;
 }
-}
-
 
 @media (max-width: 671px) {
     .blog-thumbnail-coane-li3d{
