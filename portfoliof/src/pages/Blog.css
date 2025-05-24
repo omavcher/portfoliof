@@ -332,9 +332,9 @@
     }
 }
 @media (max-width: 1068px) {
-    .blog-meta-li3d {
+    /* .blog-meta-li3d {
         top: 20%;
-    }
+    } */
     .blog-page-give-chai-li3d{
         top: 100%;
         right: 8%;
