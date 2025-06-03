@@ -7,6 +7,7 @@ import Photos from '../components/HomePage/Photos';
 import Marquee from '../components/Marquee';
 import About from '../components/About';
 import Eyes from '../components/Eyes';
+import api from '../config/api';
 
 function HomePage() {
   const titles = [
@@ -34,6 +35,17 @@ function HomePage() {
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await api.get('/api/projects');
+      } catch (error) {
+        console.log('Check your internet connection 🤷');
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,13 +76,13 @@ function HomePage() {
             <p>Building full-stack solutions <br></br> with modern tech.</p>
       </div>
 
-<Projects/>
-{/* <AboutSection/> */}
-<EduSection/>
-<Photos/>
-<Eyes/>
-<Marquee/>
-<About/>
+      <Projects/>
+      {/* <AboutSection/> */}
+      <EduSection/>
+      <Photos/>
+      <Eyes/>
+      <Marquee/>
+      <About/>
     </div>
   );
 }
