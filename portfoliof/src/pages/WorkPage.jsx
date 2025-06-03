@@ -55,7 +55,10 @@ const techImages = {
     "MATLAB": "https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png",
     "Fortran": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Fortran_logo.svg",
     "Prolog": "https://upload.wikimedia.org/wikipedia/commons/7/75/Prolog_icon.svg",
-    "VB.NET": "https://upload.wikimedia.org/wikipedia/commons/4/40/VB.NET_Logo.svg"
+    "VB.NET": "https://upload.wikimedia.org/wikipedia/commons/4/40/VB.NET_Logo.svg",
+    "Vue.js": "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg",
+    "FastAPI": "https://upload.wikimedia.org/wikipedia/commons/0/08/FastAPI-logo.svg",
+    "AWS": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
 };
 
 function WorkPage() {
