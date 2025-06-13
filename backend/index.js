@@ -2,11 +2,29 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const axios = require("axios");
 require("dotenv").config();
 
 const app = express();
 
 connectDB();
+
+// Website reload configuration
+const url = `https://portfoliof-nfnr.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloaded");
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
 
 app.use(cors({ origin: process.env.PORTFOLIO, credentials: true }));
 app.use(cookieParser());
