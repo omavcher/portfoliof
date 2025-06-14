@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import './HomePage.css';
 import Projects from '../components/HomePage/Projects';
 import AboutSection from '../components/HomePage/AboutSection';
@@ -63,6 +64,31 @@ function HomePage() {
 
   return (
     <div className='page-main-container-king'>
+      <Helmet>
+        <title>Om Avchar | Full-Stack Developer</title>
+        <meta name="description" content="I'm Om Avchar, a full-stack developer skilled in MERN, AI integrations, and React Native. Building modern web applications with cutting-edge technologies." />
+        <meta name="keywords" content="Om Avchar, React developer, MERN, portfolio, full stack, AI developer, JavaScript, Node.js, MongoDB" />
+        <link rel="canonical" href="https://omavcher.vercel.app/" />
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Om Avchar",
+            "url": "https://omavcher.vercel.app",
+            "sameAs": [
+              "https://github.com/omavcher",
+              "https://linkedin.com/in/omawchar"
+            ],
+            "jobTitle": "Full Stack Developer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Freelance / Student"
+            }
+          }
+          `}
+        </script>
+      </Helmet>
       <img src='/backgound_coveL.avif' alt='background' className='background-isd3'/>
        
       <div className='page-container-king-dailog3'>

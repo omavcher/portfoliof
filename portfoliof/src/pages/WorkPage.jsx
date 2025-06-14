@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import './WorkPage.css';
 import { motion, useScroll, useInView } from 'framer-motion';
 import { AiFillFire, AiFillGithub } from "react-icons/ai";
@@ -230,6 +231,12 @@ function WorkPage() {
 
     return (
         <div className='page-main-container-king'>
+            <Helmet>
+                <title>My Work | Om Avchar - Full-Stack Developer</title>
+                <meta name="description" content="Explore my portfolio of full-stack development projects, including web applications, AI integrations, and modern tech solutions." />
+                <meta name="keywords" content="Om Avchar projects, portfolio work, web development projects, full stack projects, MERN stack projects" />
+                <link rel="canonical" href="https://omavcher.vercel.app/work" />
+            </Helmet>
             <img src='/backgound_coveL.avif' alt='background' className='background-isd3'/>
             
             <div className='page-container-king-dailog3'>
