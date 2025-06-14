@@ -348,20 +348,36 @@ function WorkPage() {
                                     className='project-work-x-mobiles-btn-cons'
                                     variants={containerVariants}
                                 >
-                                    <motion.span 
-                                        className='button-profsx'
-                                        variants={itemVariants}
-                                        whileHover={{ scale: 1.05 }}
-                                    >
-                                        <FaGithub /> Source code
-                                    </motion.span>
-                                    <motion.span 
+                                    {project.github ? (
+                                        <motion.a 
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className='button-profsx'
+                                            variants={itemVariants}
+                                            whileHover={{ scale: 1.05 }}
+                                        >
+                                            <FaGithub /> Source code
+                                        </motion.a>
+                                    ) : (
+                                        <motion.span 
+                                            className='button-profsx'
+                                            variants={itemVariants}
+                                            style={{ cursor: 'not-allowed', opacity: 0.7 }}
+                                        >
+                                            <FaGithub /> Repo not available in public
+                                        </motion.span>
+                                    )}
+                                    <motion.a 
+                                        href={project.live_link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className='button-profsx'
                                         variants={itemVariants}
                                         whileHover={{ scale: 1.05 }}
                                     >
                                         <GiSpiderWeb /> Website
-                                    </motion.span>
+                                    </motion.a>
                                 </motion.div>
                             </motion.div>
                         </motion.div>
@@ -480,9 +496,15 @@ function WorkPage() {
                                     >
                                         <h2 className="project-title">
                                             {projectsData[activeProject]?.title}  
-                                            <Link to={`${projectsData[activeProject]?.github}`}>
-                                                <AiFillGithub size={25} style={{color:'white'}} />
-                                            </Link>
+                                            {projectsData[activeProject]?.github ? (
+                                                <Link to={`${projectsData[activeProject]?.github}`}>
+                                                    <AiFillGithub size={25} style={{color:'white'}} />
+                                                </Link>
+                                            ) : (
+                                                <span style={{cursor: 'not-allowed', opacity: 0.7}}>
+                                                    <AiFillGithub size={25} style={{color:'white'}} />
+                                                </span>
+                                            )}
                                         </h2>
                                     </motion.div>
                                     
