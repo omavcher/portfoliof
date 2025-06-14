@@ -15,7 +15,7 @@ import Loader from '../components/Loader';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-const CodeBlock = ({ children }) => {
+const CodeBlock = ({ children, language = 'javascript' }) => {
     const codeRef = useRef(null);
     const [copied, setCopied] = useState(false);
 
@@ -29,13 +29,52 @@ const CodeBlock = ({ children }) => {
         }
     };
 
+    const getLanguageLabel = (lang) => {
+        const labels = {
+            javascript: 'JavaScript',
+            python: 'Python',
+            java: 'Java',
+            cpp: 'C++',
+            csharp: 'C#',
+            php: 'PHP',
+            ruby: 'Ruby',
+            swift: 'Swift',
+            kotlin: 'Kotlin',
+            typescript: 'TypeScript',
+            html: 'HTML',
+            css: 'CSS',
+            sql: 'SQL',
+            bash: 'Bash',
+            json: 'JSON',
+            xml: 'XML',
+            markdown: 'Markdown',
+            yaml: 'YAML',
+            rust: 'Rust',
+            go: 'Go'
+        };
+        return labels[lang] || lang;
+    };
+
     return (
         <div className="code-block-wrapper-li3d">
-            <button className="copy-button-li3d" onClick={handleCopy}>
-                {copied ? 'Copied!' : 'Copy'}
-            </button>
+            <div className="code-header-li3d">
+                <span className="language-label-li3d">{getLanguageLabel(language)}</span>
+                <button className="copy-button-li3d" onClick={handleCopy}>
+                    {copied ? '✓ Copied!' : 'Copy'}
+                </button>
+            </div>
             <div ref={codeRef}>
-                <SyntaxHighlighter language="javascript" style={vsDark} customStyle={{ margin: 0, padding: '1rem', borderRadius: '8px' }}>
+                <SyntaxHighlighter 
+                    language={language} 
+                    style={vsDark} 
+                    customStyle={{ 
+                        margin: 0, 
+                        padding: '1.5rem', 
+                        borderRadius: '0 0 8px 8px',
+                        fontSize: '0.9rem',
+                        lineHeight: '1.5'
+                    }}
+                >
                     {children.trim()}
                 </SyntaxHighlighter>
             </div>
@@ -235,13 +274,14 @@ const Blog = () => {
                                             key={link.id} 
                                             href={link.url} 
                                             target="_blank" 
+                                            className='blog-a-tag0e'
                                             rel="noopener noreferrer"
                                         >
                                             {link.text}
                                         </a>
                                     ))}
                                     {section.codeSnippets.map(snippet => (
-                                        <CodeBlock key={snippet.id}>
+                                        <CodeBlock key={snippet.id} language={snippet.language}>
                                             {snippet.content}
                                         </CodeBlock>
                                     ))}

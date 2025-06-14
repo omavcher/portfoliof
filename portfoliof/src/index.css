@@ -55,16 +55,22 @@
 
 
 @media (max-width: 671px) {
-    .blog-content-li3d {
-        margin-top: 6.5rem;
+    .blog-sidebar-li3d-fd {
+     
+    margin-top: 10rem;
     }
     .blog-page-give-chai-li3d {
-        top: 7%;
+        top: 215% !important;
     }
     .blog-meta-li3d {
         top: 32%;
     }
     .blog-thumbnail-coane-li3d{
         height: 38vh;
+    }
+
+    .project-image{
+      height: 57% !important;
+      width: 95% !important;
     }
 }
