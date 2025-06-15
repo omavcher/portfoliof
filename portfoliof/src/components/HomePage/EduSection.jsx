@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './EduSection.css';
 import { TiArrowLeftThick } from "react-icons/ti";
 import { FaQuoteLeft } from "react-icons/fa";
@@ -6,6 +6,16 @@ import { FaQuoteLeft } from "react-icons/fa";
 function EduSection() {
   const scrollContainerRef = useRef(null);
   const rightSectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Prevent touch events from interfering with auto-scroll
   useEffect(() => {
@@ -112,28 +122,42 @@ function EduSection() {
     }
   ];
 
-
-
   // Combine all data for horizontal scrolling
   const allItems = [...educationData];
 
   // Duplicate the items to create seamless looping
   const eduItems = (
     <>
-      {[...educationData,...educationData].map((item, i) => (
-        <div className='edu-section-item0' key={i}>
-          <img src={item.image} alt='edu' className='edu-section-image'/>
-          <TiArrowLeftThick size={150}/>
-          <div className='edu-section-item0-text'>
-            <h2>{item.institution || item.company || item.title}</h2>
-            <p>{item.description}</p>
-            <span>
-              <p>{item.major || item.role || item.year}</p>
-              <p>{item.period || item.year}</p>
-            </span>
-          </div>
-        </div>
-      ))}
+      {!isMobile 
+        ? [...educationData, ...educationData].map((item, i) => (
+            <div className='edu-section-item0' key={i}>
+              <img src={item.image} alt='edu' className='edu-section-image'/>
+              <TiArrowLeftThick size={150}/>
+              <div className='edu-section-item0-text'>
+                <h2>{item.institution || item.company || item.title}</h2>
+                <p>{item.description}</p>
+                <span>
+                  <p>{item.major || item.role || item.year}</p>
+                  <p>{item.period || item.year}</p>
+                </span>
+              </div>
+            </div>
+          ))
+        : educationData.map((item, i) => (
+            <div className='edu-section-item0' key={i}>
+              <img src={item.image} alt='edu' className='edu-section-image'/>
+              <TiArrowLeftThick size={150}/>
+              <div className='edu-section-item0-text'>
+                <h2>{item.institution || item.company || item.title}</h2>
+                <p>{item.description}</p>
+                <span>
+                  <p>{item.major || item.role || item.year}</p>
+                  <p>{item.period || item.year}</p>
+                </span>
+              </div>
+            </div>
+          ))
+      }
     </>
   );
 
