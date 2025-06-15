@@ -9,6 +9,7 @@ import Marquee from '../components/Marquee';
 import About from '../components/About';
 import Eyes from '../components/Eyes';
 import api from '../config/api';
+import Skills from '../components/Skills';
 
 function HomePage() {
   const titles = [
@@ -104,6 +105,7 @@ function HomePage() {
 
       <Projects/>
       {/* <AboutSection/> */}
+      <Skills/>
       <EduSection/>
       <Photos/>
       <Eyes/>
