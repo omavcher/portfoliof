@@ -36,11 +36,13 @@
     flex-direction: row;
     gap: 2rem;
     margin: 2rem auto;
-    overflow-x: hidden;
+    overflow-x: auto;
     white-space: nowrap;
     padding: 1rem 0;
     width: 100%;
     max-width: 1400px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .edu-section-item0 {
@@ -239,6 +241,7 @@
         margin: 1rem 0;
         overflow-x: visible;
         white-space: normal;
+        padding: 0 1rem;
     }
 
     .edu-section-item0 {
@@ -295,11 +298,12 @@
     }
 }
 
-/* Remove the auto-scroll animation for mobile */
-@media (max-width: 767px) {
-    .edu-section-codice {
-        animation: none;
-    }
+/* Remove unnecessary scroll prevention */
+.edu-section-codice,
+.experice-details3-text-right-section {
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    pointer-events: auto;
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -391,19 +395,6 @@ display: none;}
 .experice-details3-text-right-item-reverse img{
     width: 40%;
     object-fit: cover;
-}
-
-.edu-section-codice,
-.experice-details3-text-right-section {
-  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-  overflow: hidden; /* Prevent native scrollbars */
-  pointer-events: none; /* Optional: Prevent all pointer interactions */
-}
-
-/* If you want children to be clickable despite pointer-events: none on parent */
-.edu-section-codice > *,
-.experice-details3-text-right-section > * {
-  pointer-events: auto;
 }
 
 .edu-section-item0 svg {

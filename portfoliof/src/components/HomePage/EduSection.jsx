@@ -5,7 +5,6 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 function EduSection() {
   const scrollContainerRef = useRef(null);
-  const rightSectionRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -17,48 +16,18 @@ function EduSection() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent touch events from interfering with auto-scroll
+  // Auto-scroll only for desktop
   useEffect(() => {
-    const preventTouch = (e) => {
-      e.preventDefault();
-    };
+    if (isMobile) return; // Don't auto-scroll on mobile
 
-    const scrollContainer = scrollContainerRef.current;
-    const rightSection = rightSectionRef.current;
-
-    if (scrollContainer) {
-      scrollContainer.addEventListener('touchstart', preventTouch, { passive: false });
-      scrollContainer.addEventListener('touchmove', preventTouch, { passive: false });
-    }
-
-    if (rightSection) {
-      rightSection.addEventListener('touchstart', preventTouch, { passive: false });
-      rightSection.addEventListener('touchmove', preventTouch, { passive: false });
-    }
-
-    return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener('touchstart', preventTouch);
-        scrollContainer.removeEventListener('touchmove', preventTouch);
-      }
-      if (rightSection) {
-        rightSection.removeEventListener('touchstart', preventTouch);
-        rightSection.removeEventListener('touchmove', preventTouch);
-      }
-    };
-  }, []);
-
-  // Auto-scroll for horizontal section
-  useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     let animationFrameId;
-    let scrollSpeed = 1; // Adjust speed as needed
+    let scrollSpeed = 1;
 
     const scroll = () => {
       if (scrollContainer) {
         scrollContainer.scrollLeft += scrollSpeed;
         
-        // Reset scroll position when reaching the end to create infinite loop
         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
           scrollContainer.scrollLeft = 0;
         }
@@ -71,32 +40,7 @@ function EduSection() {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
-
-  // Auto-scroll for vertical section
-  useEffect(() => {
-    const rightSection = rightSectionRef.current;
-    let animationFrameId;
-    let scrollSpeed = 0.5; // Slower speed for vertical scroll
-
-    const scroll = () => {
-      if (rightSection) {
-        rightSection.scrollTop += scrollSpeed;
-        
-        // Reset scroll position when reaching the bottom
-        if (rightSection.scrollTop >= rightSection.scrollHeight - rightSection.clientHeight) {
-          rightSection.scrollTop = 0;
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
+  }, [isMobile]);
 
   // Education data
   const educationData = [
@@ -125,7 +69,7 @@ function EduSection() {
   // Combine all data for horizontal scrolling
   const allItems = [...educationData];
 
-  // Duplicate the items to create seamless looping
+  // Duplicate the items to create seamless looping only for desktop
   const eduItems = (
     <>
       {!isMobile 

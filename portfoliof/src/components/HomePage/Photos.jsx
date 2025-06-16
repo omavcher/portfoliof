@@ -16,14 +16,38 @@ function Photos() {
   const [displayedImages, setDisplayedImages] = useState([]);
   const lastPosRef = useRef({ x: 0, y: 0 });
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const movementThreshold = 100;
-  const displayDuration = 2000;
+  const displayDuration = 5000; // Increased to 5 seconds
+  const maxImages = 7; // Maximum number of images to show
+  const mobileIntervalRef = useRef(null);
+
+  // Generate random position within container
+  const getRandomPosition = () => {
+    if (!containerRef.current) return { x: 0, y: 0 };
+    const containerRect = containerRef.current.getBoundingClientRect();
+    return {
+      x: Math.random() * (containerRect.width - 200), // Account for image width
+      y: Math.random() * (containerRect.height - 200) // Account for image height
+    };
+  };
 
   // Generate random tilt between -15 and 15 degrees
   const getRandomTilt = () => Math.floor(Math.random() * 30) - 15;
 
+  const createNewImage = (x, y) => {
+    return {
+      id: Date.now(),
+      x,
+      y,
+      src: images[Math.floor(Math.random() * images.length)],
+      tilt: getRandomTilt(),
+      scale: 0.8 + Math.random() * 0.4
+    };
+  };
+
   const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
+    if (isMobile || !containerRef.current) return;
     
     const containerRect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - containerRect.left;
@@ -36,17 +60,14 @@ function Photos() {
 
     if (distance >= movementThreshold) {
       lastPosRef.current = { x, y };
-      
-      const newImage = {
-        id: Date.now(),
-        x,
-        y,
-        src: images[Math.floor(Math.random() * images.length)],
-        tilt: getRandomTilt(),
-        scale: 0.8 + Math.random() * 0.4 // Random scale between 0.8-1.2
-      };
-
-      setDisplayedImages(prev => [...prev, newImage]);
+      const newImage = createNewImage(x, y);
+      setDisplayedImages(prev => {
+        const updated = [...prev, newImage];
+        if (updated.length > maxImages) {
+          return updated.slice(-maxImages);
+        }
+        return updated;
+      });
 
       // Auto-remove after duration
       setTimeout(() => {
@@ -54,6 +75,53 @@ function Photos() {
       }, displayDuration);
     }
   };
+
+  // Handle mobile auto-appearing photos
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const showRandomImage = () => {
+      const position = getRandomPosition();
+      const newImage = createNewImage(position.x, position.y);
+      
+      setDisplayedImages(prev => {
+        const updated = [...prev, newImage];
+        if (updated.length > maxImages) {
+          return updated.slice(-maxImages);
+        }
+        return updated;
+      });
+
+      // Auto-remove after duration
+      setTimeout(() => {
+        setDisplayedImages(prev => prev.filter(img => img.id !== newImage.id));
+      }, displayDuration);
+    };
+
+    // Show initial images with delay
+    const initialImages = Math.floor(Math.random() * 3) + 5; // Random number between 5-7
+    for (let i = 0; i < initialImages; i++) {
+      setTimeout(showRandomImage, i * 800); // Increased delay between initial images
+    }
+
+    // Set up interval for continuous appearance
+    mobileIntervalRef.current = setInterval(showRandomImage, 3000); // Increased interval
+
+    return () => {
+      if (mobileIntervalRef.current) {
+        clearInterval(mobileIntervalRef.current);
+      }
+    };
+  }, [isMobile]);
 
   // Preload images
   useEffect(() => {
@@ -126,20 +194,16 @@ function Photos() {
         </motion.div>
       ))}
 
-
-<div className="photos-poder">
-  <div className="content-wrapper">
-    <h1>Hey, I'm Om 👋</h1>
-    <p>A passionate full-stack developer exploring AI, APIs, and scalable SaaS solutions.</p>
-    <div className="highlight-box">
-      <h2>Tech Explorer 🚀</h2>
-      <p>I love building real-world products that solve problems — from AI chat apps to powerful APIs. Let's innovate together!</p>
-    </div>
-  </div>
-</div>
-
-
-
+      <div className="photos-poder">
+        <div className="content-wrapper">
+          <h1>Hey, I'm Om 👋</h1>
+          <p>A passionate full-stack developer exploring AI, APIs, and scalable SaaS solutions.</p>
+          <div className="highlight-box">
+            <h2>Tech Explorer 🚀</h2>
+            <p>I love building real-world products that solve problems — from AI chat apps to powerful APIs. Let's innovate together!</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -26,11 +26,16 @@ const Navbar = () => {
 
   // Search data
   const searchData = [
-    { title: 'Home', path: '/', category: 'Page' },
-    { title: 'Work', path: '/work', category: 'Page' },
-    { title: 'About', path: '/about', category: 'Page' },
-    { title: 'Blog', path: '/blog', category: 'Page' },
-    { title: 'Guestbook', path: '/guestbook', category: 'Page' },
+    { title: 'Home', path: '/', category: 'Page', icon: <AiFillHome /> },
+    { title: 'Work', path: '/work', category: 'Page', icon: <LuChartNetwork /> },
+    { title: 'About', path: '/about', category: 'Page', icon: <FaSnowman /> },
+    { title: 'Blog', path: '/blog', category: 'Page', icon: <GiDiplodocus /> },
+    { title: 'Guestbook', path: '/guestbook', category: 'Page', icon: <PiMaskHappyDuotone /> },
+    { title: 'Resume', path: '/', category: 'Document', icon: <GrDocumentPdf /> },
+    { title: 'GitHub', path: 'https://github.com/omavcher', category: 'Social', icon: <FaGithub /> },
+    { title: 'LinkedIn', path: 'https://www.linkedin.com/in/omawchar/', category: 'Social', icon: <FaLinkedin /> },
+    { title: 'X (Twitter)', path: 'https://twitter.com/omawchar07', category: 'Social', icon: <RiTwitterXLine /> },
+    { title: 'Instagram', path: 'https://www.instagram.com/omawchar07/', category: 'Social', icon: <FaInstagram /> },
   ];
 
   // Music tracks - files should be in public/music directory
@@ -88,7 +93,7 @@ const Navbar = () => {
         );
         setSearchResults(results);
         setIsSearching(false);
-      }, 500);
+      }, 300);
     } else {
       setSearchResults([]);
       setIsSearching(false);
@@ -135,10 +140,15 @@ const Navbar = () => {
   };
 
   const handleResultClick = (path) => {
-    navigate(path);
+    if (path.startsWith('http')) {
+      window.open(path, '_blank');
+    } else {
+      navigate(path);
+    }
     setSearchQuery('');
     setSearchResults([]);
     setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -226,8 +236,13 @@ const Navbar = () => {
                         className="search-result-item"
                         onClick={() => handleResultClick(result.path)}
                       >
-                        <div className="search-result-title">{result.title}</div>
-                        <div className="search-result-category">{result.category}</div>
+                        <div className="search-result-content">
+                          <span className="search-result-icon">{result.icon}</span>
+                          <div className="search-result-info">
+                            <div className="search-result-title">{result.title}</div>
+                            <div className="search-result-category">{result.category}</div>
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -248,8 +263,8 @@ const Navbar = () => {
                 <header>
                   <h4>General</h4>
                 </header>
-                <Link to='/' style={{marginTop:'0.5rem', width:'100%'}} className="mobile-nav-link-nav084"><GrDocumentPdf/> Resume</Link>
-                <Link to='/guestbook' style={{marginTop:'0.5rem', width:'100%'}} className="mobile-nav-link-nav084"><PiMaskHappyDuotone/> GuestBook</Link>
+                <Link to='/' style={{marginTop:'0.5rem', width:'100%'}} className="mobile-nav-link-nav084" onClick={toggleMenu}><GrDocumentPdf/> Resume</Link>
+                <Link to='/guestbook' style={{marginTop:'0.5rem', width:'100%'}} className="mobile-nav-link-nav084" onClick={toggleMenu}><PiMaskHappyDuotone/> GuestBook</Link>
               </div>
 
               <div className='nav-mobile-decr4'>
